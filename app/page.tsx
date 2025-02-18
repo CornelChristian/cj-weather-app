@@ -23,10 +23,13 @@ export default function Home() {
   const getClickedCityCords = (lat: number, lon: number) => {
     setActiveCityCoords([lat, lon]);
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    // Check if window is defined (i.e., we are in the browser)
+    if (typeof window !== "undefined") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
@@ -77,7 +80,7 @@ export default function Home() {
       </div>
 
       <footer className="py-4 flex justify-center pb-8">
-      <p className="footer-text text-sm flex items-center gap-1">
+        <p className="footer-text text-sm flex items-center gap-1">
           CJ Weather App
         </p>
       </footer>
